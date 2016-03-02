@@ -576,15 +576,18 @@ contient la liste des blocs de Blockly ci-dessous en compressé-->
     </category>
 </xml>
 
+
+
 <xml id="CAT_WEATHER" style="display: none">
     <sep></sep>
-    <category name="CAT_WEATHER">
-        
+    <category name="CAT_WEATHER">    
     
         <category name="CAT_GROVE_IN">      
-            <block type="grove_temperature_DHT11"></block>           
+            <block type="grove_temperature_DHT11"></block>  
+            <block type="grove_humidity_DHT11"></block>            
         </category>
         <category name="CAT_GROVE_LCD">
+			 <block type="grove_humidity_DHT11"></block>  
             <block type="grove_serial_lcd_print">
         <value name="TEXT">
           <block type="text">

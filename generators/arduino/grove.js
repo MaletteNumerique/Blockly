@@ -113,20 +113,36 @@ Blockly.Arduino.grove_temporature_sensor = function() {
 Blockly.Arduino.grove_temperature_DHT11 = function() {
   var dropdown_pin = this.getFieldValue('PIN');
     Blockly.Arduino.definitions_['define_custom_dht11'] = '#include "DHT.h"\n'+
-                             '#define DHTTYPE DHT11\n'                                                      
-                            ;
+                             '#define DHTTYPE DHT11\n'  ;
     Blockly.Arduino.definitions_['define_custom_dht11'+dropdown_pin] =  '#define DHTPIN'+dropdown_pin+' '+dropdown_pin+'\n'+
                                     'DHT dht'+dropdown_pin+'(DHTPIN'+dropdown_pin+', DHTTYPE);\n' 
                                 ;
-    Blockly.Arduino.setups_['setup_custom_dht11setup'+dropdown_pin] = ' dht'+dropdown_pin+'.begin();'
-   ;
-    Blockly.Arduino.definitions_['define_custom_read_3'+dropdown_pin] = 'float temp'+dropdown_pin+'(){\n'+
+    Blockly.Arduino.setups_['setup_custom_dht11setup'+dropdown_pin] = ' dht'+dropdown_pin+'.begin();';
+    Blockly.Arduino.definitions_['define_custom_read_temp_3'+dropdown_pin] = 'float temp'+dropdown_pin+'(){\n'+
                                    
                                   'float t = dht'+dropdown_pin+'.readTemperature();\n'+
                                   'return t;\n'+
                                   '}\n'
    ;
     var code = 'temp'+dropdown_pin+'()';
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.grove_humidity_DHT11 = function() {
+  var dropdown_pin = this.getFieldValue('PIN');
+    Blockly.Arduino.definitions_['define_custom_dht11'] = '#include "DHT.h"\n'+
+                             '#define DHTTYPE DHT11\n'  ;
+    Blockly.Arduino.definitions_['define_custom_dht11'+dropdown_pin] =  '#define DHTPIN'+dropdown_pin+' '+dropdown_pin+'\n'+
+                                    'DHT dht'+dropdown_pin+'(DHTPIN'+dropdown_pin+', DHTTYPE);\n' 
+                                ;
+    Blockly.Arduino.setups_['setup_custom_dht11setup'+dropdown_pin] = ' dht'+dropdown_pin+'.begin();';
+    Blockly.Arduino.definitions_['define_custom_read_hum_3'+dropdown_pin] = 'float hum'+dropdown_pin+'(){\n'+
+                                   
+                                  'float h = dht'+dropdown_pin+'.readHumidity();\n'+
+                                  'return h;\n'+
+                                  '}\n'
+   ;
+    var code = 'hum'+dropdown_pin+'()';
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 /*

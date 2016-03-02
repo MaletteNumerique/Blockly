@@ -341,14 +341,28 @@ Blockly.Blocks['grove_pir_motion_sensor'] = {
 Blockly.Blocks['grove_temperature_DHT11']= {
  init: function() {
     this.setColour(190);
-    this.setHelpUrl(Blockly.Msg.GROVE_INOUT_DHT11_HELPURL);
+    this.setHelpUrl(Blockly.Msg.GROVE_INOUT_DHT11_TEMP_HELPURL);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.GROVE_INOUT_DHT11_TEXT)
+        .appendField(Blockly.Msg.GROVE_INOUT_DHT11_TEMP_TEXT)
         .appendField(new Blockly.FieldImage(Blockly.pathToBlockly + 'blocks/grove/300px-Temp&Humi.jpg', 64, 64))
-        .appendField(Blockly.Msg.GROVE_INOUT_DHT11_INPUT)
+        .appendField(Blockly.Msg.GROVE_INOUT_DHT11_TEMP_INPUT)
         .appendField(new Blockly.FieldTextInput('',  Blockly.Arduino.pinDigitalValidator), 'PIN');
     this.setOutput(true, 'Number');
-    this.setTooltip(Blockly.Msg.GROVE_INOUT_DHT11_TOOLTIP);
+    this.setTooltip(Blockly.Msg.GROVE_INOUT_DHT11_TEMP_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['grove_humidity_DHT11']= {
+ init: function() {
+    this.setColour(190);
+    this.setHelpUrl(Blockly.Msg.GROVE_INOUT_DHT11_HUM_HELPURL);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.GROVE_INOUT_DHT11_HUM_TEXT)
+        .appendField(new Blockly.FieldImage(Blockly.pathToBlockly + 'blocks/grove/300px-Temp&Humi.jpg', 64, 64))
+        .appendField(Blockly.Msg.GROVE_INOUT_DHT11_HUM_INPUT)
+        .appendField(new Blockly.FieldTextInput('',  Blockly.Arduino.pinDigitalValidator), 'PIN');
+    this.setOutput(true, 'Number');
+    this.setTooltip(Blockly.Msg.GROVE_INOUT_DHT11_HUM_TOOLTIP);
   }
 };
 
